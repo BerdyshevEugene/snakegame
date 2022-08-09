@@ -4,11 +4,11 @@ import random
 
 pygame.init()
 
-white = (255, 255, 255)
+beige = (230, 218, 190)
 yellow = (255, 255, 102)
-black = (0, 0, 0)
+black = (140, 217, 188)
 red = (213, 50, 80)
-green = (0, 255, 0)
+green = (217, 94, 77)
 blue = (206, 246, 255)
 
 dis_width = 600
@@ -21,6 +21,7 @@ clock = pygame.time.Clock()
 
 snake_block = 10
 snake_speed = 15
+snake_speed += 0.5
 
 font_style = pygame.font.SysFont('arial', 25)
 score_font = pygame.font.SysFont('arial', 35)
@@ -60,7 +61,7 @@ def gameLoop():
     while not game_over:
 
         while game_close == True:
-            dis.fill(blue)
+            dis.fill(beige)
             message("You Lost! Press C-Play Again or Q-Quit", red)
 
             pygame.display.update()
@@ -94,7 +95,7 @@ def gameLoop():
             game_close = True
         x1 += x1_change
         y1 += y1_change
-        dis.fill(blue)
+        dis.fill(beige)
         pygame.draw.rect(dis, green, [foodx, foody, snake_block, snake_block])
         snake_Head = []
         snake_Head.append(x1)
@@ -118,7 +119,7 @@ def gameLoop():
             Length_of_snake += 1
 
         clock.tick(snake_speed)
- 
+
     pygame.quit()
     quit()
 
